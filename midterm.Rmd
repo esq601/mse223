@@ -1,0 +1,168 @@
+---
+title: "Midterm"
+author: "Marc Eskew"
+date: "4/29/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1
+
+### 1.1
+**TRUE**  This is true due to the property of inversion that says if $X$ has a CDF $F(.)$ and $U \sim U(0,1)$, then $X = F^{-1}(U)$ and $U$ and $1-U$ will have the same distribution.
+
+### 1.2
+**FALSE** For any RV $X$ and $Y$ with those conditions, this is saying that $P(X \leq z) \leq P(Y \leq z)$ and therefore $E(X) \geq E(Y)$.  As the RV with the greater CDF has a higher probability of reaching a value $z$ earlier, with an increasing function $h(\cdot)$, $E(h(X)) \geq E(h(Y))$.  
+
+### 1.3
+**TRUE** If $f(\cdot)$ is symmetric then the CDF function must satisfy $F(X)+F(-X) = 1$.  When applying the Gaussian copula, the resulting distribution will be inversely correlated with $\rho = -1$.
+
+## Problem 2
+
+### 2.1
+$(R,Z)$ can be sampled from a method using acceptance/rejection and inversion.  This will allow us to uniformly sample within the region $A$.
+
+#### Step 1
+Note that $z = \frac{1}{\sqrt{r}}-1$ is a density as $\int_0^1\frac{1}{\sqrt{r}}-1 = 1$.
+
+#### Step 2
+This CDF for $Z$ cannot be easily inverted, so we will use acceptance/rejection to sample from $f(r)$.  We set $g(r) = \frac{1}{2\sqrt{r}}$ and find C.
+
+$$
+\begin{aligned}
+f(r) &\leq Cg(r)\\
+\frac{1}{\sqrt{r}}-1 &\leq \frac{C}{2\sqrt{r}}\\
+2-2\sqrt{r} &\leq C\\
+2 &\leq C
+\end{aligned}
+$$
+
+With $G(r) = \sqrt{r}$ then $R = U^2$ with $U \sim U(0,1)$.
+
+#### Step 3
+Sample $R$ and perform acceptance/rejection for $Z$ sampling $V ~ U(0,1)$ iid from R and test to satisfy $f(r) \geq VCg(r)$.  Accept sample $(R,Z)$ if satisfies, reject otherwise.
+
+### 2.2
+
+We can sample $X$ and $Y$ by considering the RVs points within a circle of radius 1.  We can sample these by taking random samples of length and radius from the origin.
+
+$$
+\begin{aligned}
+l &= \sqrt{U} & \text{ where } U\sim U(0,1) \\
+\phi &= 2\pi V & \text{ where } V\sim U(0,1) \\\\
+X &= lcos(\phi)\\
+Y &= lsin(\phi)
+\end{aligned}
+$$
+
+With X and Y satisfying the first condition; this is analogous to the first part with sampling R.  We can use the same acceptance/rejection procedure outlined in part 1 to sample Z be setting $X^2 + Y^2 = R$.
+
+### 2.3
+
+We can use acceptance/rejection method to sample from the surface.  This involves sampling $X,Y,Z$, normalizing and using the a/r method.  Here we're setting $z=\frac{1}{\sqrt{\sqrt{x^2+y^2}}}-1$
+
+#### Step 1
+Sample $X, Y, Z$ using the method outlined previously.
+
+#### Step 2
+Set $\tilde\theta = (X,Y, Z)/\sqrt(X^2+Y^2+Z^2)$
+
+#### Step 3
+Sample $U \sim U(0,1)$
+
+#### Step 4
+If $U \leq \frac{f(\theta)}{Cg(\theta)}$ the set $\theta = \tilde\theta$. Otherwise, reject and resample.
+
+
+
+## Problem 3
+
+### 3.1
+The random variables $(X,Y)$ are not independent.  There is no way to put the density if $f(x,y) = f_1(x)f_2(y)$ where $f_1$ and $f_2$ are densities.  This is due to the indicator function, $I(|x| + |y| \leq 1)$ in the numerator.  Therefore, the two random variables are dependent.
+
+### 3.2
+
+$|x|$ and $|y|$ are both $[0,1]$ due to $I(|x| + |y| \leq 1)$.  Therefore:
+
+$$
+\begin{aligned}
+|x|I(|x| + |y|) &\leq |x| \\
+h(x) &= \frac{\alpha}{\sqrt{|x|}}I(-1\leq x \leq 1) \\
+h(y) &= \frac{\alpha}{\sqrt{|y|}}I(-1\leq y \leq 1) 
+\end{aligned}
+$$
+Where:
+
+$$
+\begin{aligned}
+\int_{-1}^1 \alpha \frac{1}{\sqrt{|x|}} &= 1\\
+\alpha &= \frac{1}{4}
+\end{aligned}
+$$
+
+We can then set our function $g(x,y)$ using independent functions $h(x)$ and $h(y)$:
+
+$$
+\begin{aligned}
+h(x) &= \frac{1}{4\sqrt{|x|}}\\
+h(y) &= \frac{1}{4\sqrt{|y|}}\\
+g(x,y) &= h(x)h(y) \\
+&= \frac{1}{16\sqrt{|x|}\sqrt{|y|}}
+\end{aligned}
+$$
+
+We can find that there exists a C such that $f(x.y) \leq Cg(x,y)$ by solving for C:
+
+$$
+\begin{aligned}
+\frac{I(|x|+|y|\leq 1)}{K\sqrt{|x|}\sqrt{|y|}} &\leq \frac{C}{16\sqrt{|x|}\sqrt{|y|}}\\
+\frac{16I(|x|+|y|\leq 1)}{K} &\leq C \\
+\frac{16}{K} &\leq C
+\end{aligned}
+$$
+
+
+
+### 3.3
+
+With $h(x)$ we can set a symmetric density function $h(x) = \frac{1}{4\sqrt{x}}I(x\geq0)+\frac{1}{4\sqrt{-x}}I(x< 0)$ and determine the CDF $H(x)$.  Using inversion, to sample from $h(x)$
+
+#### Step 1
+Sample from $U1, U2$ i.i.d. from $U(0,1)$
+
+#### Step 2
+Let $W_1 = \frac{1}{16U_1^2}$
+
+#### Step 3
+If $U_2 \leq .5$ then $W = W_1$ otherwise $W = -W_1$
+
+Utilize the same procedure to sample $h(y)$.
+
+
+### 3.4
+
+The normalizing constant, K, cancels out when we check whether to accept the sample or not by using the equation:
+
+$$
+\begin{aligned}
+\frac{f(x,y)}{Cg(x,y)} = \frac{\frac{I(|x|+|y| \leq 1)}{K\sqrt{|x|}\sqrt{|y|}}}{\frac{16}{K}\frac{1}{16\sqrt{|x|}\sqrt{|y|}}}
+\end{aligned}
+$$
+Therefore, K does not need to be explicitly known.
+
+To use acceptance/rejection on $f(x,y)$ with the proposal density of $g(x,y)$ and C the following procedure will be used:
+
+#### Step 1
+Sample $X,Y$ iid from $g(x,y)$.
+
+#### Step 2
+Sample $U \sim U(0,1)$ independently from $X, Y$.
+
+#### Step 3
+If $U \leq I(X+Y\leq 1)$ accept, otherwise reject and go back to step 1.
+
+
+

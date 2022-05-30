@@ -1,0 +1,53 @@
+State,Votes,Winning Party,RandomProb,PollProb,ArtificialProb
+Alabama,9,Republicans,0.5,0.9999,0.9999
+Alaska,3,Republicans,0.5,0.5,0.99
+Arizona,11,Republicans,0.5,0.5,0.99
+Arkansas,6,Republicans,0.5,0.9999,0.9999
+California,55,Democrats,0.5,0.0001,0.0001
+Colorado,9,Democrats,0.5,0.5,0.01
+Connecticut,7,Democrats,0.5,0.0001,0.0001
+Delaware,3,Democrats,0.5,0.0001,0.0001
+Florida,29,Republicans,0.5,0.5,0.99
+Georgia,16,Republicans,0.5,0.5,0.01
+Hawaii,4,Democrats,0.5,0.0001,0.0001
+Idaho,4,Republicans,0.5,0.9999,0.9999
+Illinois,20,Democrats,0.5,0.0001,0.0001
+Indiana,11,Republicans,0.5,0.9999,0.9999
+Iowa,6,Republicans,0.5,0.5,0.01
+Kansas,6,Republicans,0.5,0.9999,0.9999
+Kentucky,8,Republicans,0.5,0.9999,0.9999
+Lousiana,8,Republicans,0.5,0.9999,0.9999
+Maine,3,Democrats,0.5,0.0001,0.0001
+Maine,1,Republicans,0.5,0.5,0.01
+Maryland,10,Democrats,0.5,0.0001,0.0001
+Massachusetts,11,Democrats,0.5,0.0001,0.0001
+Michigan,16,Republicans,0.5,0.5,0.01
+Mississippi,6,Republicans,0.5,0.9999,0.9999
+Minnesota,10,Democrats,0.5,0.0001,0.0001
+Missouri,10,Republicans,0.5,0.9999,0.9999
+Montana,3,Republicans,0.5,0.9999,0.9999
+Nebraska,5,Republicans,0.5,0.9999,0.9999
+Nevada,6,Democrats,0.5,0.5,0.99
+New Hampshire,4,Democrats,0.5,0.5,0.99
+New Jersey,14,Democrats,0.5,0.0001,0.0001
+New Mexico,5,Democrats,0.5,0.5,0.99
+New York,29,Democrats,0.5,0.0001,0.0001
+North Carolina,15,Republicans,0.5,0.5,0.01
+North Dakota,3,Republicans,0.5,0.9999,0.9999
+Ohio,18,Republicans,0.5,0.5,0.01
+Oklahoma,7,Republicans,0.5,0.9999,0.9999
+Oregon,7,Democrats,0.5,0.5,0.99
+Pennsylvania,20,Republicans,0.5,0.5,0.99
+Rhode Island,4,Democrats,0.5,0.0001,0.0001
+South Carolina,9,Republicans,0.5,0.9999,0.9999
+South Dakota,3,Republicans,0.5,0.9999,0.9999
+Tennessee,11,Republicans,0.5,0.9999,0.9999
+Texas,38,Republicans,0.5,0.9999,0.9999
+Utah,6,Republicans,0.5,0.9999,0.9999
+Vermont,3,Democrats,0.5,0.0001,0.0001
+Virginia,13,Democrats,0.5,0.5,0.99
+Washington,12,Democrats,0.5,0.0001,0.0001
+District of Columbia,3,Democrats,0.5,0.0001,0.0001
+West Virginia,5,Republicans,0.5,0.9999,0.9999
+Wisconsin,10,Republicans,0.5,0.5,0.99
+Wyoming,3,Republicans,0.5,0.9999,0.9999
